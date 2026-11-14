@@ -20,20 +20,29 @@ h1{font-size:25px;letter-spacing:.04em;font-weight:800;color:#fff;text-transform
 .founder{margin:14px auto 0;background:var(--panel);border:1px solid rgba(191,64,191,.35);border-radius:14px;padding:12px 16px;max-width:300px}
 .founder b{font-size:17px;display:block}
 .founder span{font-size:14px;color:var(--muted);display:block;margin-top:1px}
-.contact-line{font-size:16px;margin:12px 16px 0;text-align:center;color:var(--muted)}
-.contact-line a{color:#fff;font-weight:700;text-decoration:none;font-size:18px}
 section.services{padding:20px 20px 4px;flex:1}
 h2{font-size:18px;letter-spacing:.02em;text-transform:uppercase;color:var(--brand);margin-bottom:10px;text-align:center}
-ul{list-style:none;padding:0}
-li{font-size:16.5px;padding:9px 2px 9px 30px;position:relative}
-li::before{content:"";position:absolute;left:2px;top:14px;width:15px;height:15px;border-radius:50%;background:var(--brand)}
-li::after{content:"";position:absolute;left:6px;top:16px;width:7px;height:8px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(-45deg)}
+.svc{display:grid;gap:6px}
+.row{display:flex;align-items:center;gap:12px;font-size:16px;padding:7px 2px}
+.chip{flex:none;width:36px;height:36px;border-radius:10px;background:rgba(191,64,191,.16);display:inline-flex;align-items:center;justify-content:center}
+.chip svg{width:19px;height:19px;stroke:#cf7ecf;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.primary{display:grid;place-items:center;padding:18px 16px 4px}
 .actions{display:grid;gap:12px;padding:18px 16px 8px}
-.b{display:flex;align-items:center;gap:14px;background:#fff;color:#1c0630;border-radius:14px;padding:12px 16px;min-height:64px;text-decoration:none;font-size:19px;font-weight:700}
+.b{display:flex;align-items:center;gap:14px;background:#fff;color:#1c0630;border-radius:14px;padding:12px 16px;min-height:64px;text-decoration:none;font-size:19px;font-weight:700;transition:transform .16s ease,box-shadow .16s ease,background-color .16s ease}
 .b small{display:block;font-size:13.5px;font-weight:400;color:#5c3663;margin-top:1px}
 .b svg{width:30px;height:30px;flex:none}
-.b .ic{flex:none;width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#f5eefc}
+.b .ic{flex:none;width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#f5eefc;transition:background-color .16s ease}
+.b:hover{background:#faf6ff;transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.35)}
+.b:active{transform:translateY(1px) scale(.99);box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.b:hover .ic{background:#eadcf8}
+.b:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.hero{background:#bf40bf;color:#fff;justify-content:center;min-height:72px;font-size:20px;letter-spacing:.03em;text-transform:uppercase;box-shadow:0 6px 18px rgba(191,64,191,.38)}
+.hero small{color:rgba(255,255,255,.88)}
+.hero .ic{background:rgba(255,255,255,.18)}
+.hero:hover{transform:translateY(-2px)}
+.hero:hover,.hero:active{background:#a837a8;box-shadow:0 10px 22px rgba(191,64,191,.45)}
 button.b{width:100%;border:0;cursor:pointer;font-family:inherit;text-align:left}
+@media (prefers-reduced-motion:reduce){.b{transition:none}.b:hover,.hero:hover{transform:none;box-shadow:0 6px 18px rgba(191,64,191,.38)}}
 footer{text-align:center;padding:14px 16px 22px;font-size:13.5px;color:var(--muted)}
 footer b{color:var(--brand)}
 </style>
@@ -46,18 +55,22 @@ footer b{color:var(--brand)}
 <div class="slogan">Where technology meets intelligent action.</div>
 <div class="founder"><b>Wavell Massiah</b><span>Founder</span></div>
 </header>
-<div class="contact-line">Business contact: <a href="tel:+5927126952">+592 7126952</a></div>
+<section class="primary">
+<button type="button" class="b hero" id="b-vcf">
+<span class="ic"><svg viewBox="0 0 24 24" fill="#ffffff"><path d="M15 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2Zm9 4c-3.3 0-8 1.7-8 5v2h16v-2c0-3.3-4.7-5-8-5Z"/></svg></span>
+<span>Save to Contact<small>Add us to your phone contacts</small></span></button>
+</section>
 <section class="services">
 <h2>Our Services</h2>
-<ul id="svc">
-<li>Website development &amp; landing pages</li>
-<li>Booking website automation</li>
-<li>WhatsApp automation</li>
-<li>AI chatbots &amp; virtual assistants</li>
-<li>Business workflow automation</li>
-<li>Lead generation &amp; customer acquisition</li>
-<li>Appointment and reservation systems</li>
-</ul>
+<div class="svc" id="svc">
+<div class="row"><span class="chip"><svg viewBox="0 0 24 24"><path d="M3 5.5A1.5 1.5 0 0 1 4.5 4h15A1.5 1.5 0 0 1 21 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5ZM3 9h18M7 12.5h10M7 16h6"/></svg></span>Website Development &amp; Landing Pages</div>
+<div class="row"><span class="chip"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 3v4M16 3v4M9.5 15l2 2 3.5-3.5"/></svg></span>Appointment Booking &amp; Reservation Systems</div>
+<div class="row"><span class="chip"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.06-1.35A10 10 0 1 0 12 2Zm5.4 14c-.2.6-1.3 1.2-1.8 1.2-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.3.7-2 .95-2.3.2-.3.55-.35.75-.35h.5c.2 0 .4-.05.6.45.2.55.75 1.85.8 2 .05.15.1.3 0 .5-.05.2-.1.3-.25.45l-.4.45c-.15.15-.3.3-.15.6.15.3.7 1.15 1.5 1.85.95.85 1.75 1.1 2 1.25.25.1.4.1.55-.1.15-.2.65-.75.8-1 .2-.3.35-.2.6-.1.25.1 1.5.7 1.75.85.25.15.45.2.5.3"/></svg></span>WhatsApp Automation</div>
+<div class="row"><span class="chip"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="3"/><circle cx="9" cy="13" r="1.2"/><circle cx="15" cy="13" r="1.2"/><path d="M12 8V5.4M9.5 3.5 12 5.4l2.5-1.9"/></svg></span>AI Chatbots &amp; Virtual Assistants</div>
+<div class="row"><span class="chip"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2"/><circle cx="18" cy="9" r="2.2"/><circle cx="11" cy="18" r="2.2"/><path d="M8.2 5.7 15.8 8.6M17.3 11.2 12.6 15.9M8.2 7.4l2.2 8.4"/></svg></span>Business Workflow Automation</div>
+<div class="row"><span class="chip"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.2"/><path d="M4.5 20c.9-3.4 3.1-5.1 5.5-5.1s4.6 1.7 5.5 5.1M18.5 7v5M16 9.5h5"/></svg></span>Lead Generation &amp; Customer Acquisition</div>
+<div class="row"><span class="chip"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 3v4M16 3v4M12 12.5v5M9.5 15h5"/></svg></span>Booking Website Automation</div>
+</div>
 </section>
 <section class="actions">
 <a class="b" id="b-wa" href="https://wa.me/5927126952?text=Hello%20Scarlett%20Automation" rel="noopener">
@@ -65,10 +78,7 @@ footer b{color:var(--brand)}
 <span>Chat on WhatsApp<small>Message us instantly</small></span></a>
 <a class="b" id="b-call" href="tel:+5927126952">
 <span class="ic"><svg viewBox="0 0 24 24" fill="#bf40bf"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg></span>
-<span>Call Us<small>+592 7126952</small></span></a>
-<button type="button" class="b" id="b-vcf">
-<span class="ic"><svg viewBox="0 0 24 24" fill="#bf40bf"><path d="M15 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2Zm9 4c-3.3 0-8 1.7-8 5v2h16v-2c0-3.3-4.7-5-8-5Z"/></svg></span>
-<span>Save Contact<small>Add to your phone contacts</small></span></button>
+<span>Call Us<small>Talk to us now</small></span></a>
 </section>
 <footer><b>Scarlett Automation</b> · Where technology meets intelligent action.<br>© 2026 Scarlett Automation</footer>
 </main>
